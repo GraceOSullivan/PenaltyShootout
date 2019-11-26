@@ -4,12 +4,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Game extends JFrame {
 
     public static void main(String args[]){
+        Game game = new Game();
+        game.setVisible(true);
+
+        //----------------Window Listener----------------------
+        game.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e){
+                JOptionPane.showMessageDialog(null, "Closing Window", "Exit", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(0);
+            } // end windowClosing
+        }// end anonymous inner class definition
+        ); //end of addWindowListener method argument                       // XDrive/JohnW/OOP2019/SampleCode2/ClosingWindow2.java
+
         Stadium anfield, oldTraf, santiago;
         Team liverpool, manu, real;
         Player  milner, salah, firmino, mane, origi,
@@ -17,12 +31,12 @@ public class Game extends JFrame {
                 ramos, benzema, hazard, kroos, bale;
         Keeper alisson, degea, courtois;
 
-        //Create Stadiums
+        //----------------Create Stadiums------------------------
         anfield = new Stadium("Anfield", 54074);
         oldTraf = new Stadium("Old Trafford", 76000);
         santiago = new Stadium("Santiago Bernabéu Stadium", 81044);
 
-        //Create players and keepers
+        //-----------------------Create Players and Keepers--------------------------------
         milner = new Player("James Milner", "Midfield", 34, 29, new GregorianCalendar(1986, Calendar.JANUARY, 4));
         salah = new Player("Mohamed Salah", "Forward", 16, 13, new GregorianCalendar(1992, Calendar.JUNE, 15));
         firmino = new Player("Roerto Firmino", "Forward", 9, 5, new GregorianCalendar(1991, Calendar.OCTOBER, 2));
@@ -44,7 +58,7 @@ public class Game extends JFrame {
         bale = new Player("Gareth Bale", "Forward", 9, 7, new GregorianCalendar(1989, Calendar.JULY, 16));
         courtois = new Keeper("Thibaut Courtois",  7, 3, new GregorianCalendar(1992, Calendar.MAY, 11));
 
-        //Create Teams
+        //-------------------Create Teams------------------------
         Player[] liverpoolPlayers;
         liverpoolPlayers = new Player[]{milner, salah, firmino, mane, origi};
         liverpool = new Team("Liverpool", liverpoolPlayers, alisson);
@@ -57,10 +71,7 @@ public class Game extends JFrame {
         realPlayers = new Player[]{ramos, benzema, hazard, kroos, bale};
         real = new Team("Real Madrid", realPlayers, courtois);
 
-        Game game = new Game();
-        game.setVisible(true);
-
-        //Selecting Options
+        //-----------------------Selecting Options------------------------
         String[] stadiumOptions = {"Anfield", "Old Trafford", "Santiago Bernabéu Stadium"};
         String[] teamOptions = {"Liverpool", "Man United", "Real Madrid"};
         Stadium chosenStadium = null;                         //to store chosen options
@@ -141,14 +152,18 @@ public class Game extends JFrame {
             JOptionPane.showMessageDialog(null, team2, "Please choose Team 1", JOptionPane.QUESTION_MESSAGE);
         }
 
-        assert chosenStadium != null;
         JTextArea intro = new JTextArea("Welcome everyone to " + chosenStadium + " for the Penalty Shootout of the decade!!" +
-                "We have a full attendance of " + chosenStadium.getCapacity() + "here at today's shootout is between " + chosenTeam1 + " and " +
+                "We have a full attendance of " + chosenStadium.getCapacity() + " here at today's shootout is between " + chosenTeam1 + " and " +
                 chosenTeam2 + ". Both teams have had a great season to date but it all comes down to this shootout." +
                 "Will it be " + chosenTeam1 +"'s win or " + chosenTeam2 + "'s win? Stay tuned to find out! This should " +
                 "be a cracking shootout.");
 
         intro.setVisible(true);
+
+        //Choose where to shoot
+        //algorithm to score/miss
+        //score changes
+
 
     }
 
@@ -195,13 +210,5 @@ public class Game extends JFrame {
         pane.add(team2label);
 
     }
-
-
-
-  //  private class stadiumListener implements ActionListener{
-  //      public void actionPerformed(ActionEvent e){
-    //        if(e.getSource() == stadium.getSelectedIndex())
-  //      }
-  //  }
 
 }

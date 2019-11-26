@@ -29,17 +29,20 @@ public class StartPage extends JFrame {
         stadiums = new JMenu("Stadiums");
         viewStadium = new JMenuItem("View Stadiums");
         stadiums.add(viewStadium);
-       // stadiums.addActionListener();
+        viewStadium.addActionListener(new MenuHandler());
 
         //teams
         teams = new JMenu("Teams");
         viewTeam = new JMenuItem("View Teams");
         teams.add(viewTeam);
+        viewTeam.addActionListener(new MenuHandler());
+
 
         //players
         players = new JMenu("Players");
         viewPlayers = new JMenuItem("View Players");
         players.add(viewPlayers);
+        viewPlayers.addActionListener(new MenuHandler());
 
         //file
         file = new JMenu("File");
@@ -80,7 +83,7 @@ public class StartPage extends JFrame {
         Container pane = getContentPane();
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 
-        //Create and add Labels
+        //----------------Create and add Labels-----------------------
         JLabel nameLabel = new JLabel("Penalty Shootout");
         nameLabel.setFont(new Font("Courier New", Font.BOLD, 42));
         nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -95,7 +98,7 @@ public class StartPage extends JFrame {
 
         pane.add(Box.createRigidArea(new Dimension(0, 40)));
 
-        //Create and add Buttons
+        //----------------Create and add Buttons------------------
         playButton = new JButton("Play");
         playButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         pane.add(playButton);
@@ -106,12 +109,12 @@ public class StartPage extends JFrame {
         quitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         pane.add(quitButton);
 
-        //Add listeners for the buttons - private inner class
+        //--------------Add Listeners for Buttons (private inner class)------------
         playButton.addActionListener(new ButtonHandler());
         quitButton.addActionListener((new ButtonHandler()));
     } //end constructor
 
-    //Inner-class handles clicks on buttons
+    //---------Private inner-class handles clicks on buttons-----------
     private class ButtonHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
             if(e.getSource() == playButton) {
@@ -128,7 +131,7 @@ public class StartPage extends JFrame {
         }
     } //end private inner class ButtonHandler
 
-    //Inner-class handles clicks on JMenus (ie Instructions)
+    //----------Private inner-class handles clicks on JMenu Instructions)------------
     private class MyMenuListener implements MenuListener {
         public void menuSelected(MenuEvent e) {
             if(e.getSource() == instructionsText)
@@ -140,11 +143,35 @@ public class StartPage extends JFrame {
         public void menuCanceled(MenuEvent e) {}
     }
 
-    //Inner-class handles clicks on Menu Items
+    //---------Private inner-class handles clicks on MenuItems----------------
     private class MenuHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
             if(e.getSource() == viewStadium)
-                JOptionPane.showMessageDialog(null, "");
+                //JOptionPane.showMessageDialog(null, anfield.toString() + "\n" +
+                //        oldTraff.toString() + "\n" + santiago.toString(), "Stadiums", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Anfield: \nOld Trafford: \nSantiago Bernabéu Stadium:");
+
+            else if(e.getSource() == viewTeam)
+              //  JOptionPane.showMessageDialog(null, liverpool.toString() + "\n" +
+              //          manu.toString() + "\n" + real.toString(), "Teams", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Liverpool: \nMan United: \nReal Madrid:");
+
+            else if(e.getSource() == viewPlayers) {
+              //  JOptionPane.showMessageDialog(null, "----------Liverpool Players----------\n" +
+              //          milner.toString() + salah.toString() + firmino.toString + mane.toString + origi.toString +
+              //          alisson.toString());
+                JOptionPane.showMessageDialog(null, "Liverpool: \nPlayer1: \nPlayer2: \n......");
+
+              //  JOptionPane.showMessageDialog(null, "----------Man United Players----------\n" +
+               //         martial.toString() + rashford.toString() + pogba.toString + james.toString + lingard.toString +
+               //         degea.toString());
+                JOptionPane.showMessageDialog(null, "Man United: \nPlayer1: \nPlayer2: \n......");
+
+              //  JOptionPane.showMessageDialog(null, "----------Real Madrid Players----------\n" +
+               //         ramos.toString() + benzema.toString() + hazard.toString + kroos.toString + bale.toString +
+               //         courtois.toString());
+                JOptionPane.showMessageDialog(null, "Real Madrid: \nPlayer1: \nPlayer2: \n......");
+            }
         }
     }
 }
