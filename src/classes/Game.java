@@ -153,12 +153,17 @@ public class Game extends JFrame {
         }
 
         JTextArea intro = new JTextArea("Welcome everyone to " + chosenStadium + " for the Penalty Shootout of the decade!!" +
-                "We have a full attendance of " + chosenStadium.getCapacity() + " here at today's shootout is between " + chosenTeam1 + " and " +
-                chosenTeam2 + ". Both teams have had a great season to date but it all comes down to this shootout." +
-                "Will it be " + chosenTeam1 +"'s win or " + chosenTeam2 + "'s win? Stay tuned to find out! This should " +
+                "We have a full attendance of " + chosenStadium.getCapacity() + " here at today's shootout is between " + chosenTeam1.getName() +
+                " and " + chosenTeam2.getName() + ". Both teams have had a great season to date but it all comes down to this shootout." +
+                "Will it be " + chosenTeam1.getName() +"'s win or " + chosenTeam2.getName() + "'s win? Stay tuned to find out! This should " +
                 "be a cracking shootout.");
 
         intro.setVisible(true);
+
+        JTextArea teamInfo = new JTextArea("Here is the information about the teams: \n" +
+                "----------" + chosenTeam1.getName() + "----------\n" + chosenTeam1.toString() +
+                "\n\n----------" + chosenTeam2.getName() + "----------" + chosenTeam2.toString());
+
 
         //Choose where to shoot
         //algorithm to score/miss
@@ -170,8 +175,8 @@ public class Game extends JFrame {
     public Game(){
         //Customize the window
         setTitle("Penalty Shootout");
-        setSize(1000, 600);
-        setLocation(100,50);
+        setSize(650, 650);
+        setLocation(300,20);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         //Customize the Content Pane
@@ -199,15 +204,12 @@ public class Game extends JFrame {
         JLabel team1label = new JLabel("Team 1");
         team1label.setFont(new Font("Courier New", Font.BOLD, 24));
         team1label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        //team 1 player 1 : score/miss
+        //team 2 player 2 : score miss
+        //.......
         pane.add(team1label);
 
         pane.add(Box.createRigidArea(new Dimension(0, 40)));
-
-        //Team2
-        JLabel team2label = new JLabel("Team 2");
-        team1label.setFont(new Font("Courier New", Font.BOLD, 24));
-        team1label.setAlignmentX(Component.CENTER_ALIGNMENT);
-        pane.add(team2label);
 
     }
 

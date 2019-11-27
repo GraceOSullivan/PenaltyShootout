@@ -10,7 +10,7 @@ public class StartPage extends JFrame {
     //------------Private Instance Variables-------------------
     private JButton quitButton, playButton;
     private JTextArea instructionsText = new JTextArea();
-    private JMenuItem viewStadium, viewTeam, viewPlayers, saveGame, viewSaved;
+    private JMenuItem viewInstructions, viewStadium, viewTeam, viewPlayers, saveGame, viewSaved;
 
     public static void main(String args[]){
         StartPage startPage = new StartPage();
@@ -24,6 +24,9 @@ public class StartPage extends JFrame {
 
         //instructions
         instructions = new JMenu("Instructions");
+        viewInstructions = new JMenuItem("View Instructions");
+        instructions.add(viewInstructions);
+        viewInstructions.addActionListener(new MenuHandler());
 
         //stadiums
         stadiums = new JMenu("Stadiums");
@@ -36,7 +39,6 @@ public class StartPage extends JFrame {
         viewTeam = new JMenuItem("View Teams");
         teams.add(viewTeam);
         viewTeam.addActionListener(new MenuHandler());
-
 
         //players
         players = new JMenu("Players");
@@ -69,13 +71,11 @@ public class StartPage extends JFrame {
                                 "\n- More power behind your kick = less accurate aim \n- Less power behind your kick = keeper more likely to save" +
                                 "\n- Defenders have more powerful kicks (less accurate aim) \n-Forwards have better aim (less powerful)");
         instructionsText.setVisible(false);
-        //MenuListener for instructions JMenu
-      //  instructionsText.addMenuListener(new MyMenuListener());
 
         //----------------------Customize the Window--------------------------
         setTitle("Penalty Shootout");
-        setSize(900, 600);
-        setLocation(300,100);
+        setSize(650, 650);
+        setLocation(300,20);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setJMenuBar(menuBar);
 
@@ -146,9 +146,12 @@ public class StartPage extends JFrame {
     //---------Private inner-class handles clicks on MenuItems----------------
     private class MenuHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            if(e.getSource() == viewStadium)
-                //JOptionPane.showMessageDialog(null, anfield.toString() + "\n" +
-                //        oldTraff.toString() + "\n" + santiago.toString(), "Stadiums", JOptionPane.INFORMATION_MESSAGE);
+            if(e.getSource() == viewInstructions)
+                instructionsText.setVisible(true);
+
+            else if(e.getSource() == viewStadium)
+                //JOptionPane.showMessageDialog(null, "----------Stadiums----------\n"anfield.toString() + "\n\n" +
+                //        oldTraff.toString() + "\n\n" + santiago.toString(), "View Stadiums", JOptionPane.INFORMATION_MESSAGE);
                 JOptionPane.showMessageDialog(null, "Anfield: \nOld Trafford: \nSantiago Bernabéu Stadium:");
 
             else if(e.getSource() == viewTeam)
