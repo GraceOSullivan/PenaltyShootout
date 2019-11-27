@@ -1,30 +1,27 @@
 package classes;
 
-/*
-An instantiable class which models one Player, storing
-all that players details as one Player object
- */
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-/*
-Represents a single Player within a team
+/**
+ * An instantiable class which models one Player, storing
+ * all that players details as one Player object
+ * @author Grace O'Sullivan
  */
 public class Player {
     private String name, position;
     private int pensTaken, pensScored;
     private GregorianCalendar dob;
 
-    /*
-    No-argument constructor creates a default Player
+    /**
+     * No-argument constructor creates a default Player  ie Player p = new Player();
      */
     public Player(){
         this("Unknown", "Unknown", 0, 0, new GregorianCalendar());
     }
 
-    /*
-    Full-argument constructor to create a Player where all attributes are known
+    /**
+     * Full-argument constructor to create a Player where all attributes are known
      */
     public Player(String name, String position, int pensTaken, int pensScored, GregorianCalendar dob){
             setName(name);
@@ -34,79 +31,96 @@ public class Player {
             setDob(dob);
     }
 
-    /*
-    Accessor methods
-    @return copy of the attribute                        //http://www.drjava.org/docs/user/ch10.html
+    /**
+     * Accessor Method
+     * @return copy of Players name
      */
     public String getName(){
         return name;
     }
 
+    /**
+     * Accessor Method
+     * @return copy of Players position
+     */
     public String getPosition(){
         return position;
     }
 
+    /**
+     * Accessor Method
+     * @return copy of amount of penalties a Player has taken
+     */
     public int getPensTaken() {
         return pensTaken;
     }
 
+    /**
+     * Accessor Method
+     * @return copy of amount of penalties a Player has scored
+     */
     public int getPensScored() {
         return pensScored;
     }
 
+    /**
+     * Accessor Method
+     * @return copy of amount of Players date of birth
+     */
     public Calendar getDob() {
         return dob;
     } //end accessor methods
 
-    /*
-    Mutator methods
-    Changes the value of attribute
-     */
-    /*
-    @param name is Players first and last name
+    /**
+     * Mutator method changes the value of attribute
+     * @param name is Players first and last name
      */
     public void setName(String name){
         this.name = name;
     }
 
-    /*
-    @param position is Players position on field
+    /**
+     * Mutator method changes the value of attribute
+     * @param position is Players position on field
      */
     public void setPosition(String position){
         this.position = position;
     }
 
-    /*
-    @param pensTaken is amount of penalties a Player has taken in their career
+    /**
+     * Mutator method changes the value of attribute
+     * @param pensTaken is amount of penalties a Player has taken in their career
      */
     public void setPensTaken(int pensTaken) {
         this.pensTaken = pensTaken;
     }
 
-    /*
-    @param pensScored is amount of penalties a Player has scored in their career
+    /**
+     * Mutator method changes the value of attribute
+     *  @param pensScored is amount of penalties a Player has scored in their career
      */
     public void setPensScored(int pensScored) {
         this.pensScored = pensScored;
     }
 
-    /*
-    @param dob is a GregorianCalendar object representing Players date of birth
+    /**
+     * Mutator method changes the value of attribute
+     * @param dob is a GregorianCalendar object representing Players date of birth
      */
     public void setDob(GregorianCalendar dob) {
         this.dob = dob;
     }//end mutator methods
 
-    /*
-    String summary of Player object                                  // XDrive/JohnW/OOP2019/SampleCode5 Person.java
-     @return values of Players attributes
+    /**
+     * String summary of Player object                                  // XDrive/JohnW/OOP2019/SampleCode5 Person.javA
+     * @return values of Players attributes
      */
     public String toString(){
         return ("\nPlayer Name: " + getName() +
                 "\nPosition: " + getPosition() +
                 "\nDOB: " + getDob() +
                 "\nPenalties Taken: " + getPensTaken() +
-                "\nPenalties Scored: " + getPensScored());
+                "\nPenalties Scored: " + getPensScored() + "\n");
     }
 
 }

@@ -1,9 +1,11 @@
 package classes;
 
+import java.util.Arrays;
+
 public class Team  {
-    String name;
-    Player players[] = new Player[4];
-    Keeper keeper;
+    private String name;
+    private Player[] players = new Player[4];
+    private Keeper keeper;
 
     public Team(){
         this("Unknown", new Player[4], new Keeper());
@@ -41,9 +43,9 @@ public class Team  {
 
     public String toString(){
         return("\nTeam Name: " + getName() +
+                "\n-----Players Info-----" +
+                "\n" + Arrays.toString(getPlayers()) +
                 "\n-----Keeper Info-----" +
-                "\n" + getKeeper() +
-               "\n-----Players Info-----" +
-                "\n" + getPlayers());
+                "\n" + getKeeper());
     }//end toString()
 }
