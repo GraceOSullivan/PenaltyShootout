@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class Driver extends StartPage {
+public class Driver {
     public static void main(String[] args) {
         StartPage start = new StartPage();
         start.setVisible(true);

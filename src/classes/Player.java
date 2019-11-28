@@ -67,8 +67,8 @@ public class Player {
      * Accessor Method
      * @return copy of amount of Players date of birth
      */
-    public Calendar getDob() {
-        return dob;
+    public String getDob() {
+        return dob.get(GregorianCalendar.DATE) + "/" + dob.get(GregorianCalendar.MONTH) + "/" + dob.get(GregorianCalendar.YEAR);
     } //end accessor methods
 
     /**
@@ -116,7 +116,7 @@ public class Player {
      * @return values of Players attributes
      */
     public String toString(){
-        return ("\nPlayer Name: " + getName() +
+        return ("\nName: " + getName() +
                 "\nPosition: " + getPosition() +
                 "\nDOB: " + getDob() +
                 "\nPenalties Taken: " + getPensTaken() +

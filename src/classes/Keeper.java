@@ -31,8 +31,8 @@ public class Keeper {
         return pensMissed;
     }
 
-    public Calendar getDob(){
-        return dob;
+    public String getDob(){
+        return dob.get(GregorianCalendar.DATE) + "/" + dob.get(GregorianCalendar.MONTH) + "/" + dob.get(GregorianCalendar.YEAR);
     }//end accessor methods
 
     public void setName(String name){
@@ -52,7 +52,7 @@ public class Keeper {
     }//end mutator methods
 
     public String toString(){
-        return ("\nKeeper Name: " + getName() +
+        return ("\nName: " + getName() +
                 "\nDOB: " + getDob() +
                 "\nPenalties Saved: " + getPensSaved() +
                 "\nPenalties Missed: " + getPensMissed());

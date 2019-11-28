@@ -42,10 +42,10 @@ public class Team  {
     }//end mutator methods
 
     public String toString(){
-        return("\nTeam Name: " + getName() +
-                "\n-----Players Info-----" +
+        return("---------" +  getName() + "---------" +
+                "\n---Players---" +
                 "\n" + Arrays.toString(getPlayers()) +
-                "\n-----Keeper Info-----" +
-                "\n" + getKeeper());
+                "\n---Keeper---" +
+                "\n" + getKeeper() + "\n\n\n");
     }//end toString()
 }

@@ -13,7 +13,7 @@ public class StartPage extends JFrame {
     private JMenuItem viewInstructions, viewStadium, viewTeam, viewPlayers, saveGame, viewSaved;
 
     public static void main(String args[]){
-        StartPage startPage = new StartPage();
+
     } //end main()
 
     public StartPage(){
@@ -131,50 +131,38 @@ public class StartPage extends JFrame {
         }
     } //end private inner class ButtonHandler
 
-    //----------Private inner-class handles clicks on JMenu Instructions)------------
-    private class MyMenuListener implements MenuListener {
-        public void menuSelected(MenuEvent e) {
-            if(e.getSource() == instructionsText)
-                instructionsText.setVisible(true);
-        }
-
-        //must implement all abstract methods
-        public void menuDeselected(MenuEvent e) {}
-        public void menuCanceled(MenuEvent e) {}
-    }
 
     //---------Private inner-class handles clicks on MenuItems----------------
     private class MenuHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            if(e.getSource() == viewInstructions)
-                instructionsText.setVisible(true);
+           // if(e.getSource() == viewInstructions)
+           //     instructionsText.setVisible(true);
 
-            else if(e.getSource() == viewStadium)
-                //JOptionPane.showMessageDialog(null, "----------Stadiums----------\n"anfield.toString() + "\n\n" +
-                //        oldTraff.toString() + "\n\n" + santiago.toString(), "View Stadiums", JOptionPane.INFORMATION_MESSAGE);
-                JOptionPane.showMessageDialog(null, "Anfield: \nOld Trafford: \nSantiago Bernabéu Stadium:");
+           // else if(e.getSource() == viewStadium)
+           //     JOptionPane.showMessageDialog(null, "----------Stadiums----------\n" + anfield.toString() + "\n\n" +
+           //             oldTraff.toString() + "\n\n" + santiago.toString(), "View Stadiums", JOptionPane.INFORMATION_MESSAGE);
 
-            else if(e.getSource() == viewTeam)
+          //  else if(e.getSource() == viewTeam)
               //  JOptionPane.showMessageDialog(null, liverpool.toString() + "\n" +
               //          manu.toString() + "\n" + real.toString(), "Teams", JOptionPane.INFORMATION_MESSAGE);
-                JOptionPane.showMessageDialog(null, "Liverpool: \nMan United: \nReal Madrid:");
+          //      JOptionPane.showMessageDialog(null, "Liverpool: \nMan United: \nReal Madrid:");
 
-            else if(e.getSource() == viewPlayers) {
+          //  else if(e.getSource() == viewPlayers) {
               //  JOptionPane.showMessageDialog(null, "----------Liverpool Players----------\n" +
               //          milner.toString() + salah.toString() + firmino.toString + mane.toString + origi.toString +
               //          alisson.toString());
-                JOptionPane.showMessageDialog(null, "Liverpool: \nPlayer1: \nPlayer2: \n......");
+             //   JOptionPane.showMessageDialog(null, "Liverpool: \nPlayer1: \nPlayer2: \n......");
 
               //  JOptionPane.showMessageDialog(null, "----------Man United Players----------\n" +
                //         martial.toString() + rashford.toString() + pogba.toString + james.toString + lingard.toString +
                //         degea.toString());
-                JOptionPane.showMessageDialog(null, "Man United: \nPlayer1: \nPlayer2: \n......");
+            //    JOptionPane.showMessageDialog(null, "Man United: \nPlayer1: \nPlayer2: \n......");
 
               //  JOptionPane.showMessageDialog(null, "----------Real Madrid Players----------\n" +
                //         ramos.toString() + benzema.toString() + hazard.toString + kroos.toString + bale.toString +
                //         courtois.toString());
-                JOptionPane.showMessageDialog(null, "Real Madrid: \nPlayer1: \nPlayer2: \n......");
-            }
+              //  JOptionPane.showMessageDialog(null, "Real Madrid: \nPlayer1: \nPlayer2: \n......");
+            //}
         }
     }
 }
