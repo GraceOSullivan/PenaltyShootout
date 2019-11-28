@@ -113,12 +113,17 @@ public class Game extends JFrame {
         //-----------------Team Lineups JTextArea--------------------
         JTextArea team1Lineup = new JTextArea("Here is the lineup for " + chosenTeam1.getName() + " today: \n" +
                 chosenTeam1.toString(), 50, 1);
+        team1Lineup.setLineWrap(true);
+        team1Lineup.setWrapStyleWord(true);
+        JScrollPane scrollPane = new JScrollPane(team1Lineup);
+        scrollPane.setPreferredSize( new Dimension( 500, 500 ) );
         team1Lineup.setVisible(true);
-        JOptionPane.showMessageDialog(null, team1Lineup);
+        JOptionPane.showMessageDialog(null, scrollPane);
 
         JTextArea team2Lineup = new JTextArea("Here is the lineup for " + chosenTeam2.getName() + " today: \n" +
                 chosenTeam2.toString(), 50, 1);
         team2Lineup.setVisible(true);
+
         JOptionPane.showMessageDialog(null, team2Lineup);
 
         //---------------Shooting Begins------------
