@@ -12,7 +12,7 @@ public class StartPage extends JFrame {
     //------------Private Instance Variables-------------------
     private JButton quitButton, playButton;
     private JTextArea instructionsText = new JTextArea();
-    private JMenuItem viewInstructions, viewStadium, viewTeamPlayers, viewGames;
+    private JMenuItem viewInstructions, viewStadium, viewTeamPlayers, viewResults;
 
     //-----------------Create Stadiums----------------------
     private Stadium anfield = new Stadium("Anfield", 54074);
@@ -48,9 +48,9 @@ public class StartPage extends JFrame {
         viewTeamPlayers.addActionListener(new MenuHandler());
         //file
         file = new JMenu("File");
-        viewGames = new JMenuItem("View Saved Games");
-        viewGames.addActionListener(new MenuHandler());
-        file.add(viewGames);
+        viewResults = new JMenuItem("View Saved Games");
+        viewResults.addActionListener(new MenuHandler());
+        file.add(viewResults);
 
         //Adding to menuBar
         menuBar.add(instructions);
@@ -68,7 +68,7 @@ public class StartPage extends JFrame {
                                 "\n\nREMEMBER: " +
                                 "\n- Forwards are most likely to score \n- Midfielders are 25% less likely to score than a forward" +
                                 "\n- Defenders are 50% less likely to score than a forward " +
-                                "\n- If a keepers conversion rate is greater than 75%, players possibility of scoring is reduced by another 10%");
+                                "\n- If a keepers conversion rate is greater than 72%, players possibility of scoring is reduced by another 10%");
         instructionsText.setVisible(false);
 
         //----------------------Customize the Window--------------------------
@@ -150,7 +150,7 @@ public class StartPage extends JFrame {
                scrollPane1.setPreferredSize(new Dimension(300,500 ));
                viewTeams.setVisible(true);
                JOptionPane.showMessageDialog(null, scrollPane1);
-            } else if(e.getSource() == viewGames) {
+            } else if(e.getSource() == viewResults) {
                 String score;
                 try {
                     File file = new File("Resources/scores.dat");

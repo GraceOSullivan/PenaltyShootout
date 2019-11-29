@@ -250,7 +250,8 @@ public class Game extends JFrame {
                 playerPossibilityOfScoring = playerConversionRate;
                 break;
         }
-        if(keeperConversionRate >= 75){
+
+        if(keeperConversionRate >= 72){
             playerPossibilityOfScoring *= 0.1;
         }
         return playerPossibilityOfScoring;
