@@ -5,17 +5,17 @@ import java.util.GregorianCalendar;
 
 public class Keeper {
     private String name;
-    private int pensSaved, pensMissed;
+    private int totalPens, pensSaved;
     private GregorianCalendar dob;
 
     public Keeper(){
         this("Unknown", 0, 0, new GregorianCalendar());
     }//end no-argument constructor
 
-    public Keeper(String name, int pensSaved, int pensMissed, GregorianCalendar dob){
+    public Keeper(String name, int totalPens, int pensSaved, GregorianCalendar dob){
         setName(name);
         setPensSaved(pensSaved);
-        setPensMissed(pensMissed);
+        setTotalPens(totalPens);
         setDob(dob);
     }//end full-argument constructor
 
@@ -23,12 +23,12 @@ public class Keeper {
         return name;
     }
 
-    public int getPensSaved() {
-        return pensSaved;
+    public int getTotalPens(){
+        return totalPens;
     }
 
-    public int getPensMissed(){
-        return pensMissed;
+    public int getPensSaved() {
+        return pensSaved;
     }
 
     public String getDob(){
@@ -43,8 +43,8 @@ public class Keeper {
         this.pensSaved = pensSaved;
     }
 
-    public void setPensMissed(int pensMissed){
-        this.pensMissed = pensMissed;
+    public void setTotalPens(int totalPens){
+        this.totalPens = totalPens;
     }
 
     public void setDob(GregorianCalendar dob){
@@ -54,7 +54,7 @@ public class Keeper {
     public String toString(){
         return ("\nName: " + getName() +
                 "\nDOB: " + getDob() +
-                "\nPenalties Saved: " + getPensSaved() +
-                "\nPenalties Missed: " + getPensMissed());
+                "\nTotal Penalties: " + getTotalPens() +
+                "\nPenalties Saved: " + getPensSaved());
     }//end toString()
 }

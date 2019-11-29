@@ -42,10 +42,16 @@ public class Team  {
     }//end mutator methods
 
     public String toString(){
-        return("---------" +  getName() + "---------" +
-                "\n---Players---" +
-                "\n" + Arrays.toString(getPlayers()) +
-                "\n---Keeper---" +
-                "\n" + getKeeper() + "\n\n\n");
+        String playerArray = Arrays.toString(getPlayers());
+        String formattedPlayerArray = playerArray.toString()                //to remove [] amd commas when printing thr array
+                .replace(",", "")  //remove the commas
+                .replace("[", "")  //remove the right bracket
+                .replace("]", "")  //remove the left bracket
+                .trim();           //remove trailing spaces from partially initialized arrays
+        return("\n--------------" +  getName() + "--------------" +
+                "\n\n---Players---" +
+                "\n" + formattedPlayerArray +
+                "\n\n---Keeper---" +
+                 getKeeper());
     }//end toString()
 }
