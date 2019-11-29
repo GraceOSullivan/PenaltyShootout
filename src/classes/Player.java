@@ -32,15 +32,15 @@ public class Player {
     }
 
     /**
-     * Accessor Method
-     * @return copy of Players name
+     * returns the first and last name of Player
+     * @return copy of Players first and last name
      */
     public String getName(){
         return name;
     }
 
     /**
-     * Accessor Method
+     * returns the position of Player
      * @return copy of Players position
      */
     public String getPosition(){
@@ -48,31 +48,31 @@ public class Player {
     }
 
     /**
-     * Accessor Method
-     * @return copy of amount of penalties a Player has taken
+     * returns the number of penalties taken by Player
+     * @return copy of number of penalties a Player has taken
      */
     public int getPensTaken() {
         return pensTaken;
     }
 
     /**
-     * Accessor Method
-     * @return copy of amount of penalties a Player has scored
+     * returns the number of penalties scored by Player
+     * @return copy of number of penalties a Player has scored
      */
     public int getPensScored() {
         return pensScored;
     }
 
     /**
-     * Accessor Method
-     * @return copy of amount of Players date of birth
+     * returns the date of birth of Player
+     * @return copy of Players date of birth
      */
     public String getDob() {
         return dob.get(GregorianCalendar.DATE) + "/" + dob.get(GregorianCalendar.MONTH) + "/" + dob.get(GregorianCalendar.YEAR);
     } //end accessor methods
 
     /**
-     * Mutator method changes the value of attribute
+     * sets name to a Players first and last name
      * @param name is Players first and last name
      */
     public void setName(String name){
@@ -80,7 +80,7 @@ public class Player {
     }
 
     /**
-     * Mutator method changes the value of attribute
+     * sets position to a Players position on field
      * @param position is Players position on field
      */
     public void setPosition(String position){
@@ -88,7 +88,7 @@ public class Player {
     }
 
     /**
-     * Mutator method changes the value of attribute
+     * sets pensTaken to number of penalties a Player has taken in their career
      * @param pensTaken is amount of penalties a Player has taken in their career
      */
     public void setPensTaken(int pensTaken) {
@@ -96,7 +96,7 @@ public class Player {
     }
 
     /**
-     * Mutator method changes the value of attribute
+     * sets pensScored to number of penalties a Player has scored in their career
      *  @param pensScored is amount of penalties a Player has scored in their career
      */
     public void setPensScored(int pensScored) {
@@ -104,7 +104,7 @@ public class Player {
     }
 
     /**
-     * Mutator method changes the value of attribute
+     * sets dob to Players date of birth
      * @param dob is a GregorianCalendar object representing Players date of birth
      */
     public void setDob(GregorianCalendar dob) {
@@ -112,7 +112,7 @@ public class Player {
     }//end mutator methods
 
     /**
-     * String summary of Player object                                  // XDrive/JohnW/OOP2019/SampleCode5 Person.javA
+     * returns a String summary of Player object
      * @return values of Players attributes
      */
     public String toString(){
