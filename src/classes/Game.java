@@ -173,7 +173,7 @@ public class Game extends JFrame {
         } else if(team2Score>team1Score) {
             winner = chosenTeam2.getName();
         }
-        else{
+        else {
             JTextArea draw = new JTextArea("AND IT'S A DRAW! \n\n Replay will be held next week!");
             JOptionPane.showMessageDialog(null, draw, "Draw", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -187,7 +187,14 @@ public class Game extends JFrame {
             File file = new File("Resources/scores.dat");
             FileOutputStream fos = new FileOutputStream(file, true);                    //low-level
             ObjectOutputStream oos = new ObjectOutputStream(fos);                               //high-level
-            oos.writeObject(chosenTeam1.getName() + ": " + team1Score + "\t" + chosenTeam2.getName() + ": " + team2Score + "\n");     //writing to file
+            Score score = new Score();
+            score.setTeam1Name(chosenTeam1.getName());
+            score.setTeam1Score(team1Score);
+            score.setTeam2Name(chosenTeam2.getName());
+            score.setTeam2Score(team2Score);
+            ArrayList<Score> scores = new ArrayList<>();
+            scores.add(score);                                                       //Adds score to array list - still only printing first entry though
+            oos.writeObject(scores);                                                 //writing to file
             oos.close();                                                             //stops wasting memory - tidies up memory after writing to file
         }
         catch(IOException ex){
@@ -249,10 +256,6 @@ public class Game extends JFrame {
             case "Forward":
                 playerPossibilityOfScoring = playerConversionRate;
                 break;
-        }
-
-        if(keeperConversionRate >= 72){
-            playerPossibilityOfScoring *= 0.1;
         }
         return playerPossibilityOfScoring;
     }

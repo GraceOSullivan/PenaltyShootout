@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -64,11 +65,11 @@ public class StartPage extends JFrame {
                                 "\n\nThen the shootout begins:" +
                                 "\n- Each team gets 5 shots " +
                                 "\n- Take note of the players position and possibility to score \n- Take note of keepers conversion rate " +
-                                "\n-Choose the corner you would like to aim towards \n- The team with the most scores at the wins." +
+                                "\n- Choose the corner you would like to aim towards \n- The team with the most scores at the end wins." +
                                 "\n\nREMEMBER: " +
                                 "\n- Forwards are most likely to score \n- Midfielders are 25% less likely to score than a forward" +
-                                "\n- Defenders are 50% less likely to score than a forward " +
-                                "\n- If a keepers conversion rate is greater than 72%, players possibility of scoring is reduced by another 10%");
+                                "\n- Defenders are 50% less likely to score than a forward\n\n " +
+                                "Best of luck! ");
         instructionsText.setVisible(false);
 
         //----------------------Customize the Window--------------------------
@@ -151,16 +152,13 @@ public class StartPage extends JFrame {
                viewTeams.setVisible(true);
                JOptionPane.showMessageDialog(null, scrollPane1);
             } else if(e.getSource() == viewResults) {
-                String score;
                 try {
                     File file = new File("Resources/scores.dat");
                     FileInputStream fis = new FileInputStream(file);
                     ObjectInputStream ois = new ObjectInputStream(fis);
-                    score = (String) ois.readObject();
+                    ArrayList<Score> scores = (ArrayList<Score>) ois.readObject();
+                    System.out.println(scores);
                     ois.close();
-                    JTextArea previousGames = new JTextArea(score, 10, 20);
-                    previousGames.setVisible(true);
-                    JOptionPane.showMessageDialog(null, previousGames);
                 } catch (IOException | ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
